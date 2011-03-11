@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}todo{% endblock %}
+
+{% block css %}
+<style>
+    p{
+      font-size:20px;
+      margin:10px 0;
+      text-align:center;
+    }
+    h1{
+        font-size:48px;
+        margin:75px 0 25px;
+        text-align:center;
+    }
+    div.center{
+      width:600px;
+      margin:0 auto;
+    }
+    input[type="text"]{
+        font-size:20px;
+        width:500px;
+    }
+    ul{
+        margin:25px auto 0;
+        width:600px;
+    }
+</style>
+{% endblock %}
+
+
+{% block main %}
+<p><a href="/">&larr; go back home</a></p>
+<h1>some todos</h1>
+<div class="center">
+  <form action="{{ url_for('add_todo') }}" method="post">
+      <input type="text" name="text" />
+      <input type="submit" value="add"/>
+  </form>
+</div>
+
+<ul>
+  {% for todo in todos %}
+    <li>{{ todo.text }}</li>
+  {% endfor %}
+</ul>
+{% endblock %}
+
+
+{% block js %}
+<script type="text/javascript">
+
+  (function(){
+
+    var num = $('ul').children().length;
+
+    if(num === 0){
+      $('input[type="text"]').val('read the source code, luke');
+    }
+
+  })();
+
+</script>
+{% endblock %}

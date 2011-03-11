@@ -1,0 +1,35 @@
+application: your-app-name-here
+version: 1
+runtime: python
+api_version: 1
+
+
+builtins:
+- appstats: on
+- remote_api: on
+- datastore_admin: on
+
+
+handlers:
+
+- url: /favicon.ico
+  static_files: static/img/favicon.ico
+  upload: static/img/favicon.ico
+
+- url: /apple-touch-icon.png
+  static_files: static/img/apple-touch-icon.png
+  upload: static/img/apple-touch-icon.png
+
+- url: /robots.txt
+  static_files: static/robots.txt
+  upload: static/robots.txt
+
+- url: /humans.txt
+  static_files: static/humans.txt
+  upload: static/humans.txt
+
+- url: /static
+  static_dir: static
+
+- url: /.*
+  script: bootstrap.py

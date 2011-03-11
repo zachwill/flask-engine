@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}ohai html5 boilerplate{% endblock %}
+
+{% block css %}
+<style>
+    h1{
+        font-size:48px;
+        margin:75px 0 50px;
+        text-align:center;
+    }
+    p{
+        font-size:20px;
+        margin:25px 0;
+        text-align:center;
+    }
+    strong{
+        font-size:24px;
+    }
+</style>
+{% endblock %}
+
+
+{% block main %}
+<h1>ohai</h1>
+<p><strong>I'm in yo app-engine &mdash; html5 boilerplatin' it up</strong></p>
+<p>Now why don't you go <a href="/todo/">check what you need todo?</a></p>
+{% endblock %}
