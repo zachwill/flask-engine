@@ -60,7 +60,12 @@ Google account.
     cd /path/to/your/app
     appcfg.py update .
 
+### Remote Console
 
-# Todo
+    cd /path/to/your/app
+    python appengine_console.py .
+
+
+## Todo
 
 * add more tests to `tests.py`
