@@ -8,14 +8,11 @@ where flask, jinja2, werkzeug, and other libraries are stored.
 import sys
 import os
 from wsgiref.handlers import CGIHandler
-from utils import adjust_root_dir
+from app import app
 
 
 def main():
-    adjust_root_dir()
-    from app import app
     CGIHandler().run(app)
-
 
 if __name__ == '__main__':
     main()
