@@ -12,14 +12,13 @@ After writing your tests, you can then run this script from the commandline:
 
 """
 
+import unittest
 from utils import find_gae_sdk
 
 find_gae_sdk()
 
 # You can write your unittests just like normal below.
 
-
-import unittest
 from app import app
 
 
