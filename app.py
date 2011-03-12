@@ -8,10 +8,10 @@ The `apps.py` file is used for both the routing and logic of your
 application by default, but this can be split apart similar to how
 Django splits models, views, urls, and templates.
 """
-from utils import adjust_root_dir
+from utils import adjust_sys_path
 from models import Todo
 
-adjust_root_dir()
+adjust_sys_path()
 
 from flask import Flask, url_for, render_template, request, redirect
 

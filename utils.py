@@ -6,7 +6,7 @@ import sys
 import os
 
 
-def adjust_root_dir():
+def adjust_sys_path():
     """Find libraries that are kept in `libs` folder."""
     root_dir = os.path.dirname(os.path.abspath(__file__))
     sys.path.insert(0, os.path.join(root_dir, 'libs'))
@@ -18,7 +18,7 @@ def find_gae_sdk():
     Engine's SDK. These normally occur when trying to run the application
     from the commandline and/or when testing.
     """
-    adjust_root_dir()
+    adjust_sys_path()
     from gae_path.util import gae_sdk_path, add_gae_sdk_path
     add_gae_sdk_path()
     sys.path.append(gae_sdk_path() + "/lib/yaml/lib")
