@@ -34,6 +34,7 @@ sys.path.append(gae_sdk_path() + '/lib/webob')
 import unittest
 from app import app
 
+
 class AppTest(unittest.TestCase):
 
     def test_blah(self):

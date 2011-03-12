@@ -1,9 +1,7 @@
-#
 # Flask Documentation:      http://flask.pocoo.org/docs/
 # Jinja2 Documentation:     http://jinja.pocoo.org/2/documentation/
 # Werkzeug Documentation:   http://werkzeug.pocoo.org/documentation/
-# The Python Datastore API: http://code.google.com/appengine/docs/python/datastore/
-#
+# Python Datastore API: http://code.google.com/appengine/docs/python/datastore/
 
 from flask import Flask, url_for, render_template, request, redirect
 from models import Todo

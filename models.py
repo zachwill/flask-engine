@@ -1,6 +1,7 @@
-# The Python Datastore API: http://code.google.com/appengine/docs/python/datastore/
+# Python Datastore API: http://code.google.com/appengine/docs/python/datastore/
 
 from google.appengine.ext import db
+
 
 class Todo(db.Model):
     text = db.StringProperty()
