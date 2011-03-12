@@ -69,3 +69,5 @@ Google account.
 ## Todo
 
 * add more tests to `tests.py`
+* add pep8.py to libs
+  * create PEP8 TestCase, too
