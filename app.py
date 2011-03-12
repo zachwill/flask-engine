@@ -37,4 +37,5 @@ def page_not_found(e):
 
 @app.route('/qunit/')
 def qunit():
+    """Render a qunit test page for your JavaScript tests."""
     return render_template('test_js.html')
