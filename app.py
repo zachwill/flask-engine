@@ -1,7 +1,13 @@
-# Flask Documentation:       http://flask.pocoo.org/docs/
-# Jinja2 Documentation:      http://jinja.pocoo.org/2/documentation/
-# Werkzeug Documentation:    http://werkzeug.pocoo.org/documentation/
-# GAE Python Documentation:  http://code.google.com/appengine/docs/python/
+"""
+Flask Documentation:       http://flask.pocoo.org/docs/
+Jinja2 Documentation:      http://jinja.pocoo.org/2/documentation/
+Werkzeug Documentation:    http://werkzeug.pocoo.org/documentation/
+GAE Python Documentation:  http://code.google.com/appengine/docs/python/
+
+The `apps.py` file is used for both the routing and logic of your
+application by default, but this can be split apart similar to how
+Django splits models, views, urls, and templates.
+"""
 
 from flask import Flask, url_for, render_template, request, redirect
 from models import Todo
@@ -11,7 +17,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    """Render our website's index page."""
+    """Render website's index page."""
     return render_template('index.html')
 
 
@@ -37,5 +43,5 @@ def page_not_found(e):
 
 @app.route('/qunit/')
 def qunit():
-    """Render a QUnit test page for JavaScript tests."""
+    """Render a QUnit page for JavaScript tests."""
     return render_template('test_js.html')
