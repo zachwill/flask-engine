@@ -37,6 +37,9 @@ from app import app
 
 class AppTest(unittest.TestCase):
 
+    def setUp(self):
+        self.app = app
+
     def test_pass(self):
         pass
 
