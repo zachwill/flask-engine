@@ -7,14 +7,15 @@ where flask, jinja2, werkzeug, and other libraries are stored.
 
 import sys
 import os
-
-# Let's keep flask, jinja2, and werkzeug in a separate libs folder.
-# NOTE: You can add other libraries here, too -- and still
-# import them as normal.
-
-ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, os.path.join(ROOT_DIR, 'libs'))
-
 from wsgiref.handlers import CGIHandler
-from app import app
-CGIHandler().run(app)
+from utils import adjust_root_dir
+
+
+def main():
+    adjust_root_dir()
+    from app import app
+    CGIHandler().run(app)
+
+
+if __name__ == '__main__':
+    main()

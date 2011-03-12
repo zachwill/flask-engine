@@ -1,10 +1,9 @@
-#!/usr/bin/python
-
+#!/usr/bin/env python
 """
 Easy setup to run unittests for your code.
 
 The code is pretty straight-forward -- it allows you to pull in any
-libraries you might have in the libs folder, then appends the appropriate
+libraries you might have in the libs folder, and also appends the appropriate
 GAE SDK path.
 
 After writing your tests, you can then run this script from the commandline:
@@ -13,20 +12,9 @@ After writing your tests, you can then run this script from the commandline:
 
 """
 
+from utils import find_gae_sdk
 
-import sys
-import os
-
-ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, os.path.join(ROOT_DIR, 'libs'))
-
-from gae_path.util import gae_sdk_path, add_gae_sdk_path
-
-add_gae_sdk_path()
-sys.path.append(gae_sdk_path() + "/lib/yaml/lib")
-sys.path.append(gae_sdk_path() + "/lib/fancy_urllib")
-sys.path.append(gae_sdk_path() + '/lib/webob')
-
+find_gae_sdk()
 
 # You can write your unittests just like normal below.
 
