@@ -63,5 +63,4 @@ Google account.
 
 # Todo
 
-* `@app.route` for qunit JavaScript tests
 * add more tests to `tests.py`
