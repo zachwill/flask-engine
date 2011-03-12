@@ -12,7 +12,6 @@ How do you use this?
 import code
 import getpass
 import sys
-import os
 from utils import find_gae_sdk
 
 find_gae_sdk()
