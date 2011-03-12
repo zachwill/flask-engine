@@ -13,7 +13,7 @@ like the speed of [Flask](http://flask.pocoo.org/) compared to
 on GAE), so I thought someone else might find it useful, too.
 
 Just about everything is ready to go right out of the box -- including
-`qunit` for JavaScript tests and a `tests.py` file for Python `unittest`.
+`QUnit` for JavaScript tests and a `tests.py` file for Python's `unittest`.
 Also, I included a `style.less` file since I primarily only use the
 [Less app](http://incident57.com/less/) when writing stylesheets nowadays.
 
