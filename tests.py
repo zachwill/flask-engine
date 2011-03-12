@@ -37,8 +37,11 @@ from app import app
 
 class AppTest(unittest.TestCase):
 
-    def test_blah(self):
+    def test_pass(self):
         pass
+
+    def test_import_from_libs_folder(self):
+        import flask
 
 
 if __name__ == '__main__':
