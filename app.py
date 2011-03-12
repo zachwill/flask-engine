@@ -1,7 +1,7 @@
-# Flask Documentation:      http://flask.pocoo.org/docs/
-# Jinja2 Documentation:     http://jinja.pocoo.org/2/documentation/
-# Werkzeug Documentation:   http://werkzeug.pocoo.org/documentation/
-# Python Datastore API: http://code.google.com/appengine/docs/python/datastore/
+# Flask Documentation:       http://flask.pocoo.org/docs/
+# Jinja2 Documentation:      http://jinja.pocoo.org/2/documentation/
+# Werkzeug Documentation:    http://werkzeug.pocoo.org/documentation/
+# GAE Python Documentation:  http://code.google.com/appengine/docs/python/
 
 from flask import Flask, url_for, render_template, request, redirect
 from models import Todo
@@ -33,3 +33,8 @@ def add_todo():
 def page_not_found(e):
     """Custom 404 page."""
     return render_template('404.html'), 404
+
+
+@app.route('/qunit/')
+def qunit():
+    return render_template('test_js.html')
