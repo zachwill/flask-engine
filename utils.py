@@ -9,7 +9,7 @@ import os
 def adjust_sys_path():
     """
     Patch to search the libs folder. At the moment, I believe it's unable to
-    finding .egg's, but it does search libs for imports before anything else.
+    find .egg's, but it does search libs for imports before anything else.
     """
     root_dir = os.path.dirname(os.path.abspath(__file__))
     sys.path.insert(0, os.path.join(root_dir, 'libs'))
