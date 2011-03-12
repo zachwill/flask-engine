@@ -13,6 +13,8 @@ from models import Todo
 
 adjust_sys_path()
 
+# You can now import from libs like normal.
+
 from flask import Flask, url_for, render_template, request, redirect
 
 app = Flask(__name__)
