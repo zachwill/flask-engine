@@ -9,7 +9,7 @@ This file initializes your application.
 
 from flask import Flask, url_for, render_template, request, redirect
 from wtforms import Form, TextField, validators
-from app.models import Todo
+from models import Todo
 
 app = Flask('app')
 app.debug = True

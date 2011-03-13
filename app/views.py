@@ -14,13 +14,13 @@ class TodoForm(Form):
     todo = TextField([validators.Required()])
 
 
-@views.route('/')
+@app.route('/')
 def index():
     """Render website's index page."""
     return render_template('index.html')
 
 
-@views.route('/todo/')
+@app.route('/todo/')
 def todo_list():
     """Simple todo page."""
     form = TodoForm()
@@ -28,7 +28,7 @@ def todo_list():
             todos=Todo.all().order('-created_at'))
 
 
-@views.route('/todo/add', methods=["POST"])
+@app.route('/todo/add', methods=["POST"])
 def add_todo():
     """Add a todo."""
     form = TodoForm(request.form)
@@ -38,7 +38,7 @@ def add_todo():
     return redirect(url_for('todo_list'))
 
 
-@views.route('/qunit/')
+@app.route('/qunit/')
 def qunit():
     """Render a QUnit page for JavaScript tests."""
     return render_template('test_js.html')
