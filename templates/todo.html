@@ -35,7 +35,7 @@
 <h1>some todos</h1>
 <div class="center">
   <form action="{{ url_for('add_todo') }}" method="post">
-      <input type="text" name="text" />
+      {{ form.todo }}
       <input type="submit" value="add"/>
   </form>
 </div>

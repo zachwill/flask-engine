@@ -4,9 +4,9 @@ Jinja2 Documentation:      http://jinja.pocoo.org/2/documentation/
 Werkzeug Documentation:    http://werkzeug.pocoo.org/documentation/
 GAE Python Documentation:  http://code.google.com/appengine/docs/python/
 
-The `apps.py` file is used for both the routing and logic of your
-application by default, but this can be split apart similar to how
-Django splits models, views, urls, and templates.
+This file is used for both the routing and logic of your
+application by default, but it can be split apart similar to how
+Django splits views and urls into separate files.
 """
 from utils import adjust_sys_path
 from models import Todo
@@ -16,8 +16,15 @@ adjust_sys_path()
 # You can now import from libs like normal.
 
 from flask import Flask, url_for, render_template, request, redirect
+from wtforms import Form, TextField, validators
 
 app = Flask(__name__)
+app.debug = True
+
+
+class TodoForm(Form):
+    """Simple todo form."""
+    todo = TextField([validators.Required()])
 
 
 @app.route('/')
@@ -29,14 +36,18 @@ def index():
 @app.route('/todo/')
 def todo_list():
     """Simple todo page."""
-    return render_template('todo.html', todos=Todo.all().order('-created_at'))
+    form = TodoForm()
+    return render_template('todo.html', form=form,
+            todos=Todo.all().order('-created_at'))
 
 
 @app.route('/todo/add', methods=["POST"])
 def add_todo():
     """Add a todo."""
-    todo = Todo(text=request.form['text'])
-    todo.save()
+    form = TodoForm(request.form)
+    if request.method == 'POST' and form.validate():
+        todo = Todo(text=form.todo.data)
+        todo.save()
     return redirect(url_for('todo_list'))
 
 
