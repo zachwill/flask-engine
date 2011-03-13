@@ -11,15 +11,15 @@ After writing your tests, you can then run this script from the commandline:
     python tests.py
 
 """
-
 import unittest
-from utils import find_gae_sdk
+from utils import adjust_sys_path
 
-find_gae_sdk()
+adjust_sys_path()
 
 # You can write your unittests just like normal below.
 
 from app import app
+from wsgiref.handlers import CGIHandler
 
 
 class LibsImportTest(unittest.TestCase):
@@ -46,6 +46,9 @@ class AppTest(unittest.TestCase):
 
     def setUp(self):
         self.app = app
+
+    def test_app(self):
+        self.app == app
 
 
 if __name__ == '__main__':
