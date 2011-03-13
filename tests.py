@@ -47,6 +47,10 @@ class AppTest(unittest.TestCase):
     def setUp(self):
         self.app = app
 
+    def test_flaskext_babel(self):
+        from flaskext.babel import Babel
+        babel = Babel(self.app)
+
 
 if __name__ == '__main__':
     unittest.main()
