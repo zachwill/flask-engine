@@ -1,3 +1,5 @@
+"""Additional sample test file that will run along with app_tests.py"""
+
 import unittest
 from google.appengine.api import urlfetch
 

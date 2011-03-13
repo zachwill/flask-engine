@@ -1,15 +1,7 @@
-#!/usr/bin/env python
 """
-Easy setup to run unittests for your code.
-
-The code is pretty straight-forward -- it allows you to pull in any
-libraries you might have in the libs folder, and also appends the appropriate
-GAE SDK path.
-
-After writing your tests, you can then run this script from the commandline:
-    cd path/to/your/app
-    python tests.py
-
+Using gaeunit.py to run tests -- while tests can't be run from the
+commandline, this is currently the best way I've found to use the Python
+unittest module.
 """
 import unittest
 from utils import adjust_sys_path
