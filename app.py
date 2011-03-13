@@ -7,10 +7,6 @@ GAE Python Documentation:  http://code.google.com/appengine/docs/python/
 This file is used for both the routing and logic of your
 application by default, but it can be split apart similar to how
 Django splits views and urls into separate files.
-
-NOTE: If you're wanting to use reCaptcha support for your application,
-you will have to obtain keys from http://recaptcha.net/ -- the keys
-provided here will only work while you're developing on localhost.
 """
 from utils import adjust_sys_path
 from models import Todo
