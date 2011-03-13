@@ -13,16 +13,16 @@ like the speed of [Flask](http://flask.pocoo.org/) compared to
 on GAE), so I thought someone else might find it useful, too.
 
 Just about everything is ready to go right out of the box -- including
-`QUnit` for JavaScript tests and a `tests.py` file for Python's `unittest`.
+`QUnit` for JavaScript tests and a `test` directory for Python's `unittest`.
 Also, I included a `style.less` file since I primarily only use the
 [Less app](http://incident57.com/less/) when writing stylesheets nowadays.
 
 
 ## Why should I use it?
 
-I stumbled a bit figuring out how to add the `unittest` module and setup an
-`appengine_console.py` file to connect to GAE's remote API, so this skeleton
-might come in handy for you.
+I stumbled a bit figuring out how to add tests and use the `unittest` module,
+and also setup an `appengine_console.py` file to connect to GAE's remote API,
+so this skeleton might come in handy for you.
 
 I looked at two other Flask GAE skeletons on Github
 ([flask-gae-skeleton](https://github.com/blossom/flask-gae-skeleton)
@@ -51,13 +51,14 @@ Google account.
 
     dev_appserver.py .
 
-### Test
-
-    python tests.py
-
 ### Deploy
 
     appcfg.py update .
+
+### Test
+
+Run your application with the `dev_appserver.py .` command, and then point
+your browser to http://localhost:<YOUR-HOST-NUMBER>/test
 
 ### Remote Console
 

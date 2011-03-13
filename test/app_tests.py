@@ -19,7 +19,6 @@ adjust_sys_path()
 # You can write your unittests just like normal below.
 
 from app import app
-from wsgiref.handlers import CGIHandler
 
 
 class LibsImportTest(unittest.TestCase):
