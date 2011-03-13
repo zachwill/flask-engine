@@ -61,7 +61,6 @@ Google account.
 
 ### Remote Console
 
-    cd app
     python appengine_console.py .
 
 
