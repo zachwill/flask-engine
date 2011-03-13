@@ -7,6 +7,10 @@ GAE Python Documentation:  http://code.google.com/appengine/docs/python/
 The `apps.py` file is used for both the routing and logic of your
 application by default, but this can be split apart similar to how
 Django splits models, views, urls, and templates.
+
+If you're wanting to use reCaptcha support for your application,
+you will have to obtain keys from http://recaptcha.net/ -- the keys
+provided here will only work while you're developing on localhost.
 """
 from utils import adjust_sys_path
 from models import Todo
@@ -16,6 +20,9 @@ adjust_sys_path()
 # You can now import from libs like normal.
 
 from flask import Flask, url_for, render_template, request, redirect
+
+RECAPTCHA_PUBLIC_KEY = '6LeYIbsSAAAAACRPIllxA7wvXjIE411PfdB2gt2J'
+RECAPTCHA_PRIVATE_KEY = '6LeYIbsSAAAAAJezaIq3Ft_hSTo0YtyeFG-JgRtu'
 
 app = Flask(__name__)
 
