@@ -28,7 +28,9 @@ I looked at two other Flask GAE skeletons on Github
 ([flask-gae-skeleton](https://github.com/blossom/flask-gae-skeleton)
 and [flask-gae-template](https://github.com/jugyo/flask-gae-template)
 -- both of which were awesome for learning), and I adapted what
-I felt were some of their best parts.
+I felt were some of their best parts. Recently I've adapted a structure
+similar to this
+[project skeleton](https://github.com/franciscosouza/labs).
 
 Also, this is my first Github project, so I felt it'd be a good challenge.
 
@@ -47,22 +49,19 @@ Google account.
 
 ### Run
 
-    cd /path/to/your/app
     dev_appserver.py .
 
 ### Test
 
-    cd /path/to/your/app
     python tests.py
 
 ### Deploy
 
-    cd /path/to/your/app
     appcfg.py update .
 
 ### Remote Console
 
-    cd /path/to/your/app
+    cd app
     python appengine_console.py .
 
 
