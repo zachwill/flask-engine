@@ -19,7 +19,6 @@ from flask import Flask, url_for, render_template, request, redirect
 from wtforms import Form, TextField, validators
 
 app = Flask(__name__)
-app.debug = True
 
 
 class TodoForm(Form):
