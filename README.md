@@ -28,11 +28,9 @@ I looked at two other Flask GAE skeletons on Github
 ([flask-gae-skeleton](https://github.com/blossom/flask-gae-skeleton)
 and [flask-gae-template](https://github.com/jugyo/flask-gae-template)
 -- both of which were awesome for learning), and I adapted what
-I felt were some of their best parts. Recently I've this project's structure
-to be more similar to this
-[project skeleton](https://github.com/franciscosouza/labs).
-
-Also, this is my first Github project, so I felt it'd be a good challenge.
+I felt were some of their best parts. Recently, I've updated this project's
+structure after browing the source code of
+[another project skeleton](https://github.com/franciscosouza/labs).
 
 Lastly, as an added bonus, the scripts are PEP8 compliant.
 
