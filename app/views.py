@@ -2,16 +2,11 @@
 This file is used for both the routing and logic of your
 application.
 """
-from flask import Module, url_for, render_template, request, redirect
-from wtforms import Form, TextField, validators
+from flask import Flask, url_for, render_template, request, redirect
 from app.models import Todo
+from app.forms import TodoForm
 
-views = Module(__name__)
-
-
-class TodoForm(Form):
-    """Simple todo form."""
-    todo = TextField([validators.Required()])
+app = Flask('app')
 
 
 @app.route('/')
@@ -42,3 +37,9 @@ def add_todo():
 def qunit():
     """Render a QUnit page for JavaScript tests."""
     return render_template('test_js.html')
+
+
+@app.errorhandler(404)
+def page_not_found(error):
+    """Custom 404 page."""
+    return render_template('404.html'), 404
