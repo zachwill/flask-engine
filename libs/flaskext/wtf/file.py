@@ -1,7 +1,14 @@
 from flask import request
 
+from werkzeug import FileStorage
+
 from wtforms import FileField as _FileField
 from wtforms import ValidationError
+
+def is_file(field):
+
+    return isinstance(field.data, FileStorage) and \
+        field.data.filename is not None
 
 
 class FileField(_FileField):
@@ -12,10 +19,9 @@ class FileField(_FileField):
     @property
     def file(self):
         """
-        Returns FileStorage class if available from request.files
-        or None
+        :deprecated: synonym for **data**
         """
-        return request.files.get(self.name, None)
+        return self.data
 
 
 class FileRequired(object):
@@ -29,12 +35,10 @@ class FileRequired(object):
     """
 
     def __init__(self, message=None):
-        self.message=message
+        self.message = message
 
     def __call__(self, form, field):
-        file = getattr(field, "file", None)
-
-        if not file:
+        if not is_file(field):
             raise ValidationError, self.message
 
 file_required = FileRequired
@@ -57,11 +61,14 @@ class FileAllowed(object):
         self.message = message
 
     def __call__(self, form, field):
-        file = getattr(field, "file", None)
 
-        if file is not None and \
-            not self.upload_set.file_allowed(file, file.filename):
+        if not is_file(field):
+            return
+
+        if not self.upload_set.file_allowed(
+            field.data, field.data.filename):
             raise ValidationError, self.message
+
 
 file_allowed = FileAllowed
     

@@ -138,12 +138,16 @@ class Form(BaseForm):
         if self.is_submitted():
         
             if formdata is None:
-                formdata = request.form
+                if request.files:
+                    formdata = request.form.copy()
+                    formdata.update(request.files)
+                else:
+                    formdata = request.form
 
             # ensure csrf validation occurs ONLY when formdata is passed
             # in case "csrf" is the only field in the form
 
-            if not formdata and not request.files:
+            if not formdata:
                 self.csrf_is_valid = False
             else:
                 self.csrf_is_valid = None
