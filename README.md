@@ -29,7 +29,7 @@ I looked at two other Flask GAE skeletons on Github
 and [flask-gae-template](https://github.com/jugyo/flask-gae-template)
 -- both of which were awesome for learning), and I adapted what
 I felt were some of their best parts. Recently, I've updated this project's
-structure after browing the source code of
+structure after browsing the source code of
 [another project skeleton](https://github.com/franciscosouza/labs).
 
 Lastly, as an added bonus, the scripts are PEP8 compliant.
