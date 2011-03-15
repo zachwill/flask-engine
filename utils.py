@@ -2,6 +2,7 @@
 Handy utility functions -- mostly for adjusting the sys path and/or
 finding the Google App Engine SDK.
 """
+
 import sys
 import os
 

@@ -1,5 +1,4 @@
-#!/usr/bin/python
-
+#!/usr/bin/env python
 """
 For more information on the remote api:
     http://code.google.com/appengine/articles/remote_api.html
