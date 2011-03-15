@@ -10,7 +10,7 @@ adjust_sys_path()
 
 # You can write your unittests just like normal below.
 
-from app import app
+from app import create_app
 
 
 class LibsImportTest(unittest.TestCase):
@@ -36,10 +36,7 @@ class LibsImportTest(unittest.TestCase):
 class AppTest(unittest.TestCase):
 
     def setUp(self):
-        self.app = app
-
-    def test_app(self):
-        self.app == app
+        self.app = create_app()
 
 
 if __name__ == '__main__':
