@@ -56,7 +56,7 @@ Google account.
 ### Test
 
 Run your application with the `dev_appserver.py .` command, and then point
-your browser to `http://localhost:<YOUR-HOST-NUMBER>/test`
+your browser to `http://localhost:<YOUR-PORT-NUMBER>/test`
 
 ### Remote Console
 
