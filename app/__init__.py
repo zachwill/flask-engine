@@ -18,9 +18,7 @@ This file creates your application.
 
 from flask import Flask
 from views import views
-
-APP_NAME = 'app'
-SECRET_KEY = 'this_obviously_should_be_changed'
+import settings
 
 
 def create_app():
@@ -30,7 +28,7 @@ def create_app():
     bootstrap.py and the test directory do this.
     """
     app = Flask(__name__)
-    app.config.from_object(__name__)
+    app.config.from_object(settings)
     app.register_module(views)
     return app
 
