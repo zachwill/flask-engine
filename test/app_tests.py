@@ -12,7 +12,6 @@ adjust_sys_path()
 # And just write your unittests just like normal below.
 
 import flask
-from mock import patch
 
 
 class LibsImportTest(unittest.TestCase):
