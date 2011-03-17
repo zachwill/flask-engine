@@ -40,6 +40,8 @@ a:link{-webkit-tap-highlight-color:#FF5E99;}
 button{width:auto;overflow:visible;}
 .ie7 img{-ms-interpolation-mode:bicubic;}
 body,select,input,textarea{color:#444;}
+input::-webkit-input-placeholder{color:#A9A9A9;}
+input:-moz-placeholder{color:#A9A9A9;}
 h1,h2,h3,h4,h5,h6{font-weight:bold;}
 a,a:active,a:visited{color:#607890;}
 a:hover{color:#036;}
