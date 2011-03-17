@@ -5,11 +5,11 @@ unittest module.
 """
 
 import unittest
-from utils import find_gae_sdk, adjust_sys_path
+from utils import adjust_sys_path
 
 adjust_sys_path()
 
-# And just write your unittests just like normal below.
+# And just write your unittests like normal below.
 
 import flask
 
