@@ -13,24 +13,24 @@ like the speed of [Flask](http://flask.pocoo.org/) compared to
 on GAE), so I thought someone else might find it useful, too.
 
 Just about everything is ready to go right out of the box -- including
-`QUnit` for JavaScript tests and a `tests.py` file for Python's `unittest`.
+`QUnit` for JavaScript tests and a `test` directory for Python's `unittest`.
 Also, I included a `style.less` file since I primarily only use the
 [Less app](http://incident57.com/less/) when writing stylesheets nowadays.
 
 
 ## Why should I use it?
 
-I stumbled a bit figuring out how to add the `unittest` module and setup an
-`appengine_console.py` file to connect to GAE's remote API, so this skeleton
-might come in handy for you.
+I stumbled a bit figuring out how to add tests and use the `unittest` module,
+and also setup an `appengine_console.py` file to connect to GAE's remote API,
+so this skeleton might come in handy for you.
 
 I looked at two other Flask GAE skeletons on Github
 ([flask-gae-skeleton](https://github.com/blossom/flask-gae-skeleton)
 and [flask-gae-template](https://github.com/jugyo/flask-gae-template)
 -- both of which were awesome for learning), and I adapted what
-I felt were some of their best parts.
-
-Also, this is my first Github project, so I felt it'd be a good challenge.
+I felt were some of their best parts. Recently, I've updated this project's
+structure after browsing the source code of
+[another project skeleton](https://github.com/franciscosouza/labs).
 
 Lastly, as an added bonus, the scripts are PEP8 compliant.
 
@@ -47,22 +47,19 @@ Google account.
 
 ### Run
 
-    cd /path/to/your/app
     dev_appserver.py .
-
-### Test
-
-    cd /path/to/your/app
-    python tests.py
 
 ### Deploy
 
-    cd /path/to/your/app
     appcfg.py update .
+
+### Test
+
+Run your application with the `dev_appserver.py .` command, and then point
+your browser to `http://localhost:<YOUR-PORT-NUMBER>/test`
 
 ### Remote Console
 
-    cd /path/to/your/app
     python appengine_console.py .
 
 

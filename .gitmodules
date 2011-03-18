@@ -1,3 +1,3 @@
 [submodule "libs/gae_path"]
 	path = libs/gae_path
-	url = https://github.com/nikgraf/gae-path
+	url = https://github.com/nikgraf/gae-path.git
