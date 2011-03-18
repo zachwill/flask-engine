@@ -24,7 +24,7 @@
 {% block main %}
 <h1>ohai</h1>
 <p><strong>I'm in yo app-engine &mdash; html5 boilerplatin' it up</strong></p>
-<p>Now why don't you go <a href="/todo/">check what you need todo?</a></p>
-<p>Or check that your <a href="/qunit/">JavaScript tests pass QUnit?</a></p>
+<p>Now why don't you go <a href="{{ url_for('views.todo_list') }}">check what you need todo?</a></p>
+<p>Or check that your <a href="{{ url_for('views.qunit') }}">JavaScript tests pass QUnit?</a></p>
 <p>You could always check your <a href="/asdf">custom 404 page</a>, too.</p>
 {% endblock %}
