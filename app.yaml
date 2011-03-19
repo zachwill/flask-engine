@@ -70,9 +70,6 @@ handlers:
   static_files: static/\1
   upload: static/(.*\.html)
 
-- url: /static
-  static_dir: static
-
 - url: /test.*
   login: admin
   script: gaeunit.py
