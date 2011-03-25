@@ -45,6 +45,13 @@ def qunit():
     return render_template('test_js.html')
 
 
+@views.after_request
+def add_header(response):
+    """Add header to force latest IE rendering engine and Chrome Frame."""
+    response.headers['X-UA-Compatible'] = 'IE=Edge,chrome=1'
+    return response
+
+
 @views.app_errorhandler(404)
 def page_not_found(error):
     """Custom 404 page."""

@@ -1,6 +1,40 @@
-# gae-flask-html5
+gae-flask-html5
+===============
 
-## What is this?
+<pre><code>
+
+          E
+         DtD
+        .itGD                                                ffffffffffffffffff 
+        :tttG                        E                       fffffffffjjjjjjjjf 
+        ;ttjLD     ..                ##                      fffffffffjjjjjjjjf 
+        ijjjfGEED;.:::D             WE,KE                    fffLLLLLLfjjjjjjff 
+        jfffLLt:.::::::t           D### # #                  fff......      jff 
+        LLLLf::.::ffjt::D         ,i#G.#DG                   fff......      jff 
+        DLL:::..:;:itii::E         G##W  t                   fff...fffjjjjjjjff 
+        EL::::.:;,.,jiii:j         #W#                       fff,..fffjjjjjjjff 
+       ,E:::::.:i,;:i;ii::         #Ki,                      Lfff.....     jjf; 
+       D::::::::ffL;,,ii,:,        L#  W .                   jfff.....     jjf. 
+       j::::::..LLL:.iii;:j         ,#G                      ,fff:::::...  jjf  
+       i:::::::.LLi;;;ii,:i         ##Gt. D                   ffffffffjjj  jjf  
+     LDtjfLLf:::GGG.:jii::           WW # .                   fff..fffjjj  jjf  
+   EDtitj;GGG:,:t:,;;iii::;DL        K#E##                    fff..fffjjj  jff  
+ DLLfjLGGGGDG::::i::,ii;:GGLD         D# iK :                 fff.....     jff  
+ DitifLDD;;;::::::iiiii:,GDD           L#GK# j,               ffff....   .jjff  
+  DEEE   E;,::::::::,:::t               t###K  f# #           ffffffffjjjjjjff  
+          D:::::::::::,E                  E############       ffffffffjjjjjfff  
+            EDG,:::jEE                        ;EKL            ,fffffffjjffffL,  
+                                                                  iffffffi      
+                                                                     ..     
+
+
+                      github.com/zachwill/gae-flask-html5
+
+</code></pre>
+
+
+What is this?
+-------------
 
 It's just a simple [Flask](http://flask.pocoo.org/) skeleton for
 [Google App Engine](http://appengine.google.com/),
@@ -18,7 +52,8 @@ Also, I included a `style.less` file since I primarily only use the
 [Less app](http://incident57.com/less/) when writing stylesheets nowadays.
 
 
-## Why should I use it?
+Why should I use it?
+---------------------
 
 I stumbled a bit figuring out how to add tests and use the `unittest` module,
 and also setup an `appengine_console.py` file to connect to GAE's remote API,
@@ -35,7 +70,8 @@ structure after browsing the source code of
 Lastly, as an added bonus, the scripts are PEP8 compliant.
 
 
-## How do I use it?
+How do I use it?
+----------------
 
 Make sure you have the [Google App Engine SDK](http://appengine.google.com/)
 installed on your computer, and you've created an application for your
@@ -63,7 +99,8 @@ your browser to `http://localhost:<YOUR-PORT-NUMBER>/test`
     python appengine_console.py .
 
 
-## Todo
+Todo
+----
 
 * add more tests to `tests.py`
 * add pep8.py to libs
