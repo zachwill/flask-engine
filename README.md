@@ -15,7 +15,7 @@ gae-flask-html5
         EL::::.:;,.,jiii:j         #W#                       fff,..fffjjjjjjjff 
        ,E:::::.:i,;:i;ii::         #Ki,                      Lfff.....     jjf; 
        D::::::::ffL;,,ii,:,        L#  W .                   jfff.....     jjf. 
-       j::::::..LLL:.iii;:j         ,#G                      ,fff:::::...  jjf  
+       j::::::..LLL:.iii;:j         ,#G                      ,fff.....     jjf  
        i:::::::.LLi;;;ii,:i         ##Gt. D                   ffffffffjjj  jjf  
      LDtjfLLf:::GGG.:jii::           WW # .                   fff..fffjjj  jjf  
    EDtitj;GGG:,:t:,;;iii::;DL        K#E##                    fff..fffjjj  jff  
