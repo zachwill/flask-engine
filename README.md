@@ -77,6 +77,27 @@ Make sure you have the [Google App Engine SDK](http://appengine.google.com/)
 installed on your computer, and you've created an application for your
 Google account.
 
+### Steps to Get Up and Running
+
+1. Create a new application on [Google App Engine](http://appengine.google.com/).
+
+2. `git clone` this repo into your personal project folder.
+
+3. Amend the `app.yaml` file with your application's name.
+
+4. Run the project from your development server (use the `dev_appserver.py .`
+command or use the Google App Engine Launcher GUI).
+
+5. Browse the sample application in your web browser: `http://localhost:8080`
+
+6. Once you're ready to read the source code, check out the `app` directory.
+
+7. All static media is stored in the `static` directory.
+
+
+Useful Commands
+---------------
+
 ### Setup
 
     git clone https://github.com/zachwill/gae-flask-html5.git <your_app_name_here>
