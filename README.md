@@ -47,7 +47,7 @@ like the speed of [Flask](http://flask.pocoo.org/) compared to
 on GAE), so I thought someone else might find it useful, too.
 
 Just about everything is ready to go right out of the box -- including
-`QUnit` for JavaScript tests and a `test` directory for Python's `unittest`.
+`QUnit` for JavaScript tests and a `tests` directory for Python's `unittest`.
 Also, I included a `style.less` file since I primarily only use the
 [Less app](http://incident57.com/less/) when writing stylesheets nowadays.
 
@@ -65,7 +65,7 @@ and [flask-gae-template](https://github.com/jugyo/flask-gae-template)
 -- both of which were awesome for learning), and I adapted what
 I felt were some of their best parts. Recently, I've updated this project's
 structure after browsing the source code of
-[another project skeleton](https://github.com/franciscosouza/labs).
+[another GAE project skeleton](https://github.com/franciscosouza/labs).
 
 Lastly, as an added bonus, the scripts are PEP8 compliant.
 
@@ -91,8 +91,7 @@ Google account.
 
 ### Test
 
-Run your application with the `dev_appserver.py .` command, and then point
-your browser to `http://localhost:<YOUR-PORT-NUMBER>/test`
+    python test.py
 
 ### Remote Console
 
@@ -102,6 +101,6 @@ your browser to `http://localhost:<YOUR-PORT-NUMBER>/test`
 Todo
 ----
 
-* add more tests to `tests.py`
+* add more tests
 * add pep8.py to libs
   * create PEP8 TestCase, too
