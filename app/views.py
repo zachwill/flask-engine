@@ -7,7 +7,7 @@ application.
 
 from flask import Module, url_for, render_template, request, redirect
 from models import Todo
-from forms import TodoForm
+from forms import TodoForm, EmailForm
 
 views = Module(__name__, 'views')
 
@@ -37,6 +37,34 @@ def add_todo():
     else:
         return str(form.errors)
     return redirect(url_for('todo_list'))
+
+
+@views.route('/email/')
+def email():
+    form = EmailForm()
+    return render_template('email.html', form=form)
+
+
+@views.route('/email/someone/', methods=['POST'])
+def email_someone():
+    form = EmailForm()
+    if request.method == 'POST' and form.validate_on_submit():
+        from_address = form.name.data + '@<YOURAPPID>.appspotmail.com'
+        to_address = form.recipient.data
+        subject = "%s <%s>" % (form.name.data, form.email.data)
+        message = "From: %s\n\nEmail: %s\n\nMessage: %s" % (form.name.data,
+                form.email.data, form.message.data)
+        mail.send_mail(sender=from_address, to=to_address,
+                subject=subject, body=message)
+        status = 'success'
+    else:
+        status = 'failed'
+    return redirect(url_for('email_status', status=status))
+
+
+@views.route('/email/<status>/')
+def email_status(status):
+    return render_template('email_status.html', status=status)
 
 
 @views.route('/qunit/')
