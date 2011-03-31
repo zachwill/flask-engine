@@ -75,7 +75,8 @@ How do I use it?
 
 Make sure you have the [Google App Engine SDK](http://appengine.google.com/)
 installed on your computer, and you've created an application for your
-Google account.
+Google account. The SDK will also install symlinks to its packages on your
+computer.
 
 ### Steps to Get Up and Running
 
