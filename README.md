@@ -33,6 +33,21 @@ gae-flask-html5
 </code></pre>
 
 
+Changelog
+---------
+
+### V1.0
+
+* Added email functionality.
+    * *NOTE*: You'll have to update the `from_address` variable in `views.py`
+      in order for it to work properly.
+    * Don't forget to run the development server with the
+      `dev_appserver.py --enable_sendmail .` command.
+* Added `test.py` file for running unittest. Deleted `gaeunit.py`.
+    * Tests kept in `tests` directory.
+    * Now uses GAE v1.4.3 testbed functionality.
+
+
 What is this?
 -------------
 
@@ -49,7 +64,7 @@ on GAE), so I thought someone else might find it useful, too.
 Just about everything is ready to go right out of the box -- including
 `QUnit` for JavaScript tests and a `tests` directory for Python's `unittest`.
 Also, I included a `style.less` file since I primarily only use the
-[Less app](http://incident57.com/less/) when writing stylesheets nowadays.
+[Less.app](http://incident57.com/less/) when writing stylesheets nowadays.
 
 
 Why should I use it?
@@ -95,6 +110,10 @@ command or use the Google App Engine Launcher GUI).
 
 7. All static media is stored in the `static` directory.
 
+8. Before you deploy, don't forget to:
+    * Update the `humans.txt` file.
+    * Uncomment the `default_expiration` in `app.yaml`
+
 
 Useful Commands
 ---------------
@@ -106,6 +125,11 @@ Useful Commands
 ### Run
 
     dev_appserver.py .
+
+If you're planning on using email functionality with the development server,
+use the following command:
+
+    dev_appserver.py --enable_sendmail .
 
 ### Deploy
 
