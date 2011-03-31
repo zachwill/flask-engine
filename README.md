@@ -38,14 +38,14 @@ Changelog
 
 ### V1.0
 
-* Added email functionality.
+* Added send email functionality.
     * *NOTE*: You'll have to update the `from_address` variable in `views.py`
-      in order for it to work properly.
+      for it to work properly.
     * Don't forget to run the development server with the
       `dev_appserver.py --enable_sendmail .` command.
 * Added `test.py` file for running unittest. Deleted `gaeunit.py`.
     * Tests kept in `tests` directory.
-    * Now uses GAE v1.4.3 testbed functionality.
+    * Now uses GAE v1.4.3's `testbed` functionality.
 
 
 What is this?
