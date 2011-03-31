@@ -41,12 +41,19 @@ def add_todo():
 
 @views.route('/email/')
 def email():
+    """Render a form for sending email."""
     form = EmailForm()
     return render_template('email.html', form=form)
 
 
 @views.route('/email/someone/', methods=['POST'])
 def email_someone():
+    """
+    This function actually emails the message.
+
+    Make sure you change the from_address variable if you want to use this
+    functionality -- otherwise it won't work.
+    """
     form = EmailForm()
     if request.method == 'POST' and form.validate_on_submit():
         from_address = form.name.data + '@<YOURAPPID>.appspotmail.com'
@@ -64,6 +71,7 @@ def email_someone():
 
 @views.route('/email/<status>/')
 def email_status(status):
+    """Render a success or failed status for the email."""
     return render_template('email_status.html', status=status)
 
 
