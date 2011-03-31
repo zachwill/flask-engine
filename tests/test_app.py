@@ -5,7 +5,11 @@ unittest module.
 """
 
 import unittest
+import warnings
 from google.appengine.ext import testbed
+
+# Ignore UserWarnings cause by jinja2 using pkg_resources.py
+warnings.simplefilter('ignore')
 
 # And just write your unittests like normal below.
 
