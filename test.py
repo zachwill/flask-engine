@@ -6,6 +6,8 @@ from utils import find_gae_sdk
 
 find_gae_sdk()
 
+# Now we can grab unittest2 from libs directory.
+
 import unittest2
 
 
