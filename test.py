@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 """Run unittests in the `tests` directory."""
 
 from utils import find_gae_sdk
