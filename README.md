@@ -38,7 +38,7 @@ Changelog
 
 ###V1.0.1
 
-* Fixed bug with werkzeug_debugger_appengine submodule.
+* Fixed bug with `werkzeug_debugger_appengine` submodule.
 * Minor changes to files (fixed grammar issues, deleted comments, etc).
 
 ### V1.0
