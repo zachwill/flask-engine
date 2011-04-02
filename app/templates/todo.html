@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 
-{% block title %}todo{% endblock %}
+{% block title %}ohai todo{% endblock %}
 
 {% block css %}
+<link rel="stylesheet" href="/css/formalize.css">
 <style>
     p{
       font-size:20px;
@@ -25,10 +26,14 @@
     }
     input[type="submit"]{
         margin:0 5px;
+        padding:5px 10px;
     }
     ul{
         margin:25px auto 0;
         width:600px;
+    }
+    li{
+        padding:5px;
     }
 </style>
 {% endblock %}
@@ -54,6 +59,7 @@
 
 
 {% block js %}
+<script src="/js/jquery.formalize.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 
   (function(){

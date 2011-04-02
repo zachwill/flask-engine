@@ -5,14 +5,16 @@ unittest module.
 """
 
 import unittest
-from utils import adjust_sys_path
+import warnings
+from google.appengine.ext import testbed
 
-adjust_sys_path()
+# Ignore UserWarnings cause by jinja2 using pkg_resources.py
+warnings.simplefilter('ignore')
 
 # And just write your unittests like normal below.
 
 import flask
-
+from app import create_app
 
 class LibsImportTest(unittest.TestCase):
 
@@ -28,9 +30,17 @@ class LibsImportTest(unittest.TestCase):
 class AppTest(unittest.TestCase):
 
     def setUp(self):
-        from app import create_app
+        # First, create an instance of the Testbed class.
+        self.testbed = testbed.Testbed()
+        # Then activate the testbed, which prepares the service stubs for use.
+        self.testbed.activate()
+        # Next, declare which service stubs you want to use.
+        self.testbed.init_datastore_v3_stub()
         app = create_app()
         self.app = app.test_client()
+
+    def tearDown(self):
+        self.testbed.deactivate()
 
     def test_index_page(self):
         rv = self.app.get('/')

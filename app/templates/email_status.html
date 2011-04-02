@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+
+{% block title %}email status{% endblock %}
+
+{% block css %}
+<style>
+    p{
+        font-size:24px;
+        text-align:center;
+    }
+    .headline{
+        margin:50px 0 75px;
+    }
+    h1{
+        font-size:36px;
+        margin:20px 0;
+        text-align:center;
+    }
+</style>
+{% endblock %}
+
+{% block main %}
+<p class="headline"><a href="{{ url_for('views.index') }}">&larr; go back home</a> or
+<a href="{{ url_for('views.email') }}">send another email &rarr;</a></p>
+
+{% if status == 'success' %}
+<p>Your email was a...<p>
+<h1>{{ status|title }}.</p>
+
+{% else %}
+<p>Sorry about that. Looks like your email...</p>
+<h1>{{ status|title }}.</h1>
+
+{% endif %}
+{% endblock %}
