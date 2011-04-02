@@ -46,11 +46,11 @@
   <form action="{{ url_for('add_todo') }}" method="post">
       {{ form.hidden_tag() }}
       {{ form.todo(placeholder="write your todo here") }}
-      <input type="submit" value="add"/>
+      {{ form.submit }}
   </form>
 </div>
 
-<ul>
+<ul id="todos">
   {% for todo in todos %}
     <li>{{ todo.text }}</li>
   {% endfor %}

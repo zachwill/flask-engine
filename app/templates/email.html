@@ -7,6 +7,10 @@
 {% block css %}
 <link rel="stylesheet" href="/css/formalize.css">
 <style>
+    .link{
+        font-size:20px;
+        text-align:center;
+    }
     h1{
         font-size:36px;
         margin:50px 0;
@@ -48,31 +52,19 @@
 
 
 {% block main %}
+<p class="link"><a href="{{ url_for('views.index') }}">&larr; go back home</a></p>
 <h1>send an email to someone</h1>
 <em>NOTE: you'll have to change the <code>from_address</code> to your app's ID
     in <code>views.py</code></em>
+
+{% from "_form_helpers.html" import render_field %}
 <form action="{{ url_for('email_someone') }}" method="POST">
     {{ form.hidden_tag() }}
-  <p>
-    {{ form.name.label }}
-    <br />
-    {{ form.name(placeholder="Your Name") }}
-  </p>
-  <p>
-    {{ form.email.label }}
-    <br />
-    {{ form.email(placeholder="email@your-email.com") }}
-  </p>
-  <p>
-    {{ form.recipient.label }}
-    <br />
-    {{ form.recipient(placeholder="recipient@their-email.com")}}
-  </p>
-  <p>
-    {{ form.message.label}}
-    <br />
-    {{ form.message(placeholder="I'm emailing you because...", rows=8) }}
-  </p>
+    {{ render_field(form.name, placeholder="Your Name") }}
+    {{ render_field(form.email, placeholder="email@your-email.com") }}
+    {{ render_field(form.recipient, placeholder="recipient@their-email.com") }}
+    {{ render_field(form.message, placeholder="I'm emailing you because...",
+        rows=8) }}
     {{ form.submit }}
 </form>
 {% endblock %}

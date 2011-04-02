@@ -13,12 +13,13 @@ from flaskext.wtf import (Form, TextField, TextAreaField, SubmitField,
 class TodoForm(Form):
     """Simple todo form."""
     todo = TextField(validators=[Required()])
+    submit = SubmitField("add")
 
 
 class EmailForm(Form):
     """Simple email form."""
-    name = TextField('Your Name', validators=[Required()])
+    name = TextField("Your Name", validators=[Required()])
     recipient = TextField("Recipient's Email", validators=[Email()])
-    email = TextField('Your Email', validators=[Email()])
-    message = TextAreaField('Message', validators=[Required()])
+    email = TextField("Your Email", validators=[Email()])
+    message = TextAreaField("Message", validators=[Required()])
     submit = SubmitField("Send Email")
