@@ -39,8 +39,12 @@
 {% endblock %}
 
 
+{% block header %}
+<p><a href="{{ url_for('views.index') }}">&larr; go back home</a></p>
+{% endblock %}
+
+
 {% block main %}
-<p><a href="/">&larr; go back home</a></p>
 <h1>some todos</h1>
 <div class="center">
   <form action="{{ url_for('add_todo') }}" method="post">
@@ -74,11 +78,11 @@
 
     form.submit(function(e){
       var add = $('input[type="submit"]'),
-          main = $('#main');
+          container = $('#container');
 
       add.attr('disabled', true);
 
-      main.load(
+      container.load(
         form.attr('action') + '#todos',
         form.serializeArray(),
         function(response, status){
