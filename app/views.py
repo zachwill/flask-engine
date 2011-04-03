@@ -34,8 +34,6 @@ def add_todo():
     if request.method == 'POST' and form.validate_on_submit():
         todo = Todo(text=form.todo.data)
         todo.save()
-    else:
-        return str(form.errors)
     return redirect(url_for('todo_list'))
 
 

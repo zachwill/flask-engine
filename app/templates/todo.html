@@ -55,6 +55,7 @@
     <li>{{ todo.text }}</li>
   {% endfor %}
 </ul>
+
 {% endblock %}
 
 
@@ -64,11 +65,29 @@
 
   (function(){
 
-    var num = $('ul').children().length;
+    var num = $('ul').children().length,
+       form = $('form');
 
     if(num === 0){
       $('input[type="text"]').val('read the source code, luke');
     }
+
+    form.submit(function(e){
+      var add = $('input[type="submit"]'),
+          main = $('#main');
+
+      add.attr('disabled', true);
+
+      main.load(
+        form.attr('action') + '#todos',
+        form.serializeArray(),
+        function(response, status){
+          $('input[type="submit"]').attr('disabled', false);
+        });
+
+      e.preventDefault();
+
+    });
 
   })();
 
