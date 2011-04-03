@@ -6,7 +6,9 @@
   {% if field.errors %}
   <br />
     <ul class="errors">
-    {% for error in field.errors %}<li>{{ error }}{% endfor %}
+    {% for error in field.errors %}
+      <li>{{ error }}</li>
+    {% endfor %}
     </ul>
   {% endif %}
 </p>
