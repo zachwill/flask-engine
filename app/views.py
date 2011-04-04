@@ -4,6 +4,7 @@ Flask Module Docs:  http://flask.pocoo.org/docs/api/#flask.Module
 This file is used for both the routing and logic of your
 application.
 """
+from google.appengine.api import mail
 
 from flask import Module, url_for, render_template, request, redirect
 from models import Todo
