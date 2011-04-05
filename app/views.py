@@ -58,8 +58,10 @@ def email_someone():
         from_address = form.name.data + '@<YOURAPPID>.appspotmail.com'
         to_address = form.recipient.data
         subject = "%s <%s>" % (form.name.data, form.email.data)
-        message = "From: %s\n\nEmail: %s\n\nMessage: %s" % (form.name.data,
-                form.email.data, form.message.data)
+        message = ("From: %s\n\n"
+                   "Email: %s\n\n"
+                   "Message: %s") % (form.name.data, form.email.data,
+                           form.message.data)
         mail.send_mail(sender=from_address, to=to_address,
                 subject=subject, body=message)
         status = 'success'
