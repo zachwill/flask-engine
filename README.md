@@ -36,6 +36,11 @@ gae-flask-html5
 Changelog
 ---------
 
+###V1.0.2
+
+* Minor fixes to `views.py` file.
+* Ajax functionality for adding todos.
+
 ###V1.0.1
 
 * Fixed bug with `werkzeug_debugger_appengine` submodule.
@@ -114,6 +119,7 @@ command or use the Google App Engine Launcher GUI).
 6. Once you're ready to read the source code, check out the `app` directory.
 
 7. All static media is stored in the `static` directory.
+    * This includes your favicon, `robots.txt`, and `humans.txt`
 
 8. Before you deploy, don't forget to:
     * Update the `humans.txt` file.
@@ -141,6 +147,9 @@ use the following command:
     appcfg.py update .
 
 ### Test
+
+Tests are written using GAE v1.4.3's `testbed` functionality. Currently, [there
+is a known bug](http://goo.gl/tDQTz) for users without `PIL` installed.
 
     python test.py
 
