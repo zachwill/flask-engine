@@ -117,13 +117,6 @@ command or use the Google App Engine Launcher GUI).
 5. Browse the sample application in your web browser: `http://localhost:8080`
 
 6. Once you're ready to read the source code, check out the `app` directory.
-    * Make sure to change the `SECRET_KEY` in `settings.py` using Python's `os.urandom` function.
-
-    >>> import os
-    >>> os.urandom(24)
-    '\xfd{H\xe5<\x95\xf9\xe3\x96.5\xd1\x01O<!\xd5\xa2\xa0\x9fR"\xa1\xa8'
-
-    * For more info see: [the os.urandom documentation](http://docs.python.org/library/os.html#os.urandom)
 
 7. All static media is stored in the `static` directory.
     * This includes your favicon, `robots.txt`, and `humans.txt`
@@ -131,6 +124,12 @@ command or use the Google App Engine Launcher GUI).
 8. Before you deploy, don't forget to:
     * Update the `humans.txt` file.
     * Uncomment the `default_expiration` in `app.yaml`
+    * Change the `SECRET_KEY` in `settings.py` using Python's [`os.urandom` function](http://docs.python.org/library/os.html#os.urandom).
+<pre><code>
+    >>> import os
+    >>> os.urandom(24)
+    '\xfd{H\xe5<\x95\xf9\xe3\x96.5\xd1\x01O<!\xd5\xa2\xa0\x9fR"\xa1\xa8'
+</pre></code>
 
 
 Useful Commands
