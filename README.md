@@ -2,7 +2,6 @@ Flask Engine
 ===============
 
 <pre><code>
-
                                                            EE                   
                                                           EtjK                  
                                                           EtjG                  
@@ -36,7 +35,13 @@ Changelog
 
 ###V1.0.3
 * Renamed repo to `Flask Engine`
-  * run `git remote set-url origin https://github.com/zachwill/flask-engine`
+  * Run `git remote set-url upstream https://github.com/zachwill/flask-engine`
+
+Sorry about any headaches this causes, but the name `gae-flask-html5` had become
+a little too verbose. You can still `git pull upstream` from any changes/updates
+I make -- just make sure you either `git remote set-url` or do the following:
+`git remote rm upstream https://github.com/zachwill/flask-engine` and then
+`git remote add upstream https://github.com/zachwill/flask-engine`.
 
 ###V1.0.2
 
