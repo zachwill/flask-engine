@@ -184,5 +184,5 @@ License
 
 **Author**: Zach Williams
 
-All code released under [the Unlicense](http://unlicense.org/) (a.k.a. Public
-Domain).
+All of my code is released under [the Unlicense](http://unlicense.org/) (a.k.a.
+Public Domain).
