@@ -177,3 +177,12 @@ Todo
 * add more tests
 * add pep8.py to libs
   * create PEP8 TestCase, too
+
+
+License
+-------
+
+**Author**: Zach Williams
+
+All code released under [the Unlicense](http://unlicense.org/) (a.k.a. Public
+Domain).
