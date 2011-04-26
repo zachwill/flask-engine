@@ -24,8 +24,7 @@ def todo_list():
     """Simple todo page."""
     form = TodoForm()
     todos = Todo.all().order('-created_at')
-    return render_template('todo.html', form=form,
-            todos=todos)
+    return render_template('todo.html', form=form, todos=todos)
 
 
 @views.route('/todo/add', methods=["POST"])
@@ -61,9 +60,9 @@ def email_someone():
         message = ("From: %s\n\n"
                    "Email: %s\n\n"
                    "Message: %s") % (form.name.data, form.email.data,
-                           form.message.data)
+                                     form.message.data)
         mail.send_mail(sender=from_address, to=to_address,
-                subject=subject, body=message)
+                       subject=subject, body=message)
         status = 'success'
     else:
         status = 'failed'
