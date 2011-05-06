@@ -1,7 +1,9 @@
 """
-Using gaeunit.py to run tests -- while tests can't be run from the
-commandline, this is currently the best way I've found to use the Python
-unittest module.
+Tests can be run from the commandline using GAE v1.4.3's testbed functionality,
+and by running the following command:
+
+    python test.py
+
 """
 
 import unittest

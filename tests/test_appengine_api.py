@@ -1,4 +1,4 @@
-"""Additional sample test file that will run along with app_tests.py"""
+"""Additional sample test file that will run along with test_app.py"""
 
 import unittest
 from google.appengine.ext import testbed
