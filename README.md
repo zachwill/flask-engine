@@ -40,8 +40,8 @@ Changelog
 Sorry about any headaches this causes, but the name `gae-flask-html5` had become
 a little too verbose. You can still `git pull upstream` from any changes/updates
 I make -- just make sure you either `git remote set-url` or do the following:
-`git remote rm upstream https://github.com/zachwill/flask-engine` and then
-`git remote add upstream https://github.com/zachwill/flask-engine`.
+`git remote rm upstream` and then `git remote add upstream
+https://github.com/zachwill/flask-engine`.
 
 ###V1.0.2
 
@@ -56,7 +56,7 @@ I make -- just make sure you either `git remote set-url` or do the following:
 ### V1.0
 
 * Added send email functionality.
-    * *NOTE*: You'll have to update the `from_address` variable in `views.py`
+    * **NOTE**: You'll have to update the `from_address` variable in `views.py`
       for it to work properly.
     * Don't forget to run the development server with the
       `dev_appserver.py --enable_sendmail .` command.
