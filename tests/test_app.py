@@ -50,16 +50,16 @@ class AppTest(unittest.TestCase):
 
     def test_flask_default_redirecting(self):
         rv = self.app.get('/todo')
-        assert 'Redirecting' in rv.data
+        assert 'Redirecting...' in rv.data
         assert rv.status_code == 301
 
     def test_todo_page(self):
         rv = self.app.get('/todo/')
         assert 'some todos' in rv.data
 
-    def test_add_todo_csrf_is_missing(self):
-        rv = self.app.post('/todo/add', flask.json.dumps({'todo':'tests'}))
-        assert 'Missing or invalid CSRF token' in rv.data
+    def test_add_todo_and_redirect(self):
+        rv = self.app.post('/todo/add', data=dict(todo='tests'))
+        assert 'Redirecting...' in rv.data
 
     def test_qunit_page(self):
         rv = self.app.get('/qunit/')
