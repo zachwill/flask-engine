@@ -28,6 +28,6 @@ def find_gae_sdk(dir_name='libs'):
     from gae_path.util import gae_sdk_path, add_gae_sdk_path
     add_gae_sdk_path()
     path = gae_sdk_path()
-    sys.path.append(path + "/lib/yaml/lib")
-    sys.path.append(path + "/lib/fancy_urllib")
-    sys.path.append(path + '/lib/webob')
+    sys.path.extend([path + "/lib/yaml/lib",
+                     path + "/lib/fancy_urllib",
+                     path + "/lib/webob"])
