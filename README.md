@@ -168,7 +168,7 @@ is a known bug](http://goo.gl/tDQTz) for users without `PIL` installed.
 
 ### Remote Console
 
-    python appengine_console.py .
+    python appengine_console.py <your_app_name_here>
 
 
 Todo
