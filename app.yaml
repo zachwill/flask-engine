@@ -67,7 +67,7 @@ handlers:
 
 - url: /audio/(.*\.(wav|mp3|ogg))
   static_files: static/audio/\1
-  upload: static/audio/(.*\.wav)
+  upload: static/audio/(.*\.(wav|mp3|ogg))
 
 - url: /(.*\.html)
   mime_type: text/html
