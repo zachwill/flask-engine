@@ -7,7 +7,7 @@ Forms for your application can be stored in this file.
 """
 
 from flaskext.wtf import (Form, TextField, TextAreaField, SubmitField,
-        Required, Email)
+                          Required, Email)
 
 
 class TodoForm(Form):
