@@ -6,7 +6,7 @@
     Implements signals based on blinker if available, otherwise
     falls silently back to a noop
 
-    :copyright: (c) 2010 by Armin Ronacher.
+    :copyright: (c) 2011 by Armin Ronacher.
     :license: BSD, see LICENSE for more details.
 """
 signals_available = False
@@ -34,7 +34,7 @@ except ImportError:
                                'not installed.')
         send = lambda *a, **kw: None
         connect = disconnect = has_receivers_for = receivers_for = \
-            temporarily_connected_to = _fail
+            temporarily_connected_to = connected_to = _fail
         del _fail
 
 # the namespace for code signals.  If you are not flask code, do
@@ -47,4 +47,6 @@ _signals = Namespace()
 template_rendered = _signals.signal('template-rendered')
 request_started = _signals.signal('request-started')
 request_finished = _signals.signal('request-finished')
+request_tearing_down = _signals.signal('request-tearing-down')
 got_request_exception = _signals.signal('got-request-exception')
+appcontext_tearing_down = _signals.signal('appcontext-tearing-down')

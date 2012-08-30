@@ -20,5 +20,5 @@ def create_app():
     """
     app = Flask(__name__)
     app.config.from_object(settings)
-    app.register_module(views)
+    app.register_blueprint(views)
     return app

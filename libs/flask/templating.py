@@ -5,14 +5,16 @@
 
     Implements the bridge to Jinja2.
 
-    :copyright: (c) 2010 by Armin Ronacher.
+    :copyright: (c) 2011 by Armin Ronacher.
     :license: BSD, see LICENSE for more details.
 """
 import posixpath
-from jinja2 import BaseLoader, TemplateNotFound
+from jinja2 import BaseLoader, Environment as BaseEnvironment, \
+     TemplateNotFound
 
 from .globals import _request_ctx_stack
 from .signals import template_rendered
+from .module import blueprint_is_module
 
 
 def _default_template_ctx_processor():
@@ -28,40 +30,76 @@ def _default_template_ctx_processor():
     )
 
 
-class _DispatchingJinjaLoader(BaseLoader):
+class Environment(BaseEnvironment):
+    """Works like a regular Jinja2 environment but has some additional
+    knowledge of how Flask's blueprint works so that it can prepend the
+    name of the blueprint to referenced templates if necessary.
+    """
+
+    def __init__(self, app, **options):
+        if 'loader' not in options:
+            options['loader'] = app.create_global_jinja_loader()
+        BaseEnvironment.__init__(self, **options)
+        self.app = app
+
+
+class DispatchingJinjaLoader(BaseLoader):
     """A loader that looks for templates in the application and all
-    the module folders.
+    the blueprint folders.
     """
 
     def __init__(self, app):
         self.app = app
 
     def get_source(self, environment, template):
-        template = posixpath.normpath(template)
-        if template.startswith('../'):
-            raise TemplateNotFound(template)
-        loader = None
-        try:
-            module, name = template.split('/', 1)
-            loader = self.app.modules[module].jinja_loader
-        except (ValueError, KeyError):
-            pass
-        # if there was a module and it has a loader, try this first
-        if loader is not None:
+        for loader, local_name in self._iter_loaders(template):
             try:
-                return loader.get_source(environment, name)
+                return loader.get_source(environment, local_name)
             except TemplateNotFound:
                 pass
-        # fall back to application loader if module failed
-        return self.app.jinja_loader.get_source(environment, template)
+
+        raise TemplateNotFound(template)
+
+    def _iter_loaders(self, template):
+        loader = self.app.jinja_loader
+        if loader is not None:
+            yield loader, template
+
+        # old style module based loaders in case we are dealing with a
+        # blueprint that is an old style module
+        try:
+            module, local_name = posixpath.normpath(template).split('/', 1)
+            blueprint = self.app.blueprints[module]
+            if blueprint_is_module(blueprint):
+                loader = blueprint.jinja_loader
+                if loader is not None:
+                    yield loader, local_name
+        except (ValueError, KeyError):
+            pass
+
+        for blueprint in self.app.blueprints.itervalues():
+            if blueprint_is_module(blueprint):
+                continue
+            loader = blueprint.jinja_loader
+            if loader is not None:
+                yield loader, template
 
     def list_templates(self):
-        result = self.app.jinja_loader.list_templates()
-        for name, module in self.app.modules.iteritems():
-            if module.jinja_loader is not None:
-                for template in module.jinja_loader.list_templates():
-                    result.append('%s/%s' % (name, template))
-        return result
+        result = set()
+        loader = self.app.jinja_loader
+        if loader is not None:
+            result.update(loader.list_templates())
+
+        for name, blueprint in self.app.blueprints.iteritems():
+            loader = blueprint.jinja_loader
+            if loader is not None:
+                for template in loader.list_templates():
+                    prefix = ''
+                    if blueprint_is_module(blueprint):
+                        prefix = name + '/'
+                    result.add(prefix + template)
+
+        return list(result)
 
 
 def _render(template, context, app):
@@ -71,17 +109,19 @@ def _render(template, context, app):
     return rv
 
 
-def render_template(template_name, **context):
+def render_template(template_name_or_list, **context):
     """Renders a template from the template folder with the given
     context.
 
-    :param template_name: the name of the template to be rendered
+    :param template_name_or_list: the name of the template to be
+                                  rendered, or an iterable with template names
+                                  the first one existing will be rendered
     :param context: the variables that should be available in the
                     context of the template.
     """
     ctx = _request_ctx_stack.top
     ctx.app.update_template_context(context)
-    return _render(ctx.app.jinja_env.get_template(template_name),
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
                    context, ctx.app)
 
 
