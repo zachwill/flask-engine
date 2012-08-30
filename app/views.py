@@ -7,11 +7,11 @@ application.
 
 from google.appengine.api import mail
 
-from flask import Module, url_for, render_template, request, redirect
+from flask import Blueprint, url_for, render_template, request, redirect
 from models import Todo
 from forms import TodoForm, EmailForm
 
-views = Module(__name__, 'views')
+views = Blueprint(__name__, 'views')
 
 
 @views.route('/')
