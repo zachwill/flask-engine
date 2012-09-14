@@ -1,7 +1,8 @@
 application: your-app-name-here
 version: 1
-runtime: python
+runtime: python27
 api_version: 1
+threadsafe: no
 
 
 # In production, uncomment line below.
@@ -24,7 +25,7 @@ skip_files:
 builtins:
 - appstats: on
 - remote_api: on
-- datastore_admin: on
+
 
 
 handlers:

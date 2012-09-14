@@ -11,7 +11,7 @@ from flask import Blueprint, url_for, render_template, request, redirect
 from models import Todo
 from forms import TodoForm, EmailForm
 
-views = Blueprint(__name__, 'views')
+views = Blueprint('views', __name__)
 
 
 @views.route('/')
