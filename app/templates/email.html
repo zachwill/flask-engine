@@ -58,7 +58,7 @@
     in <code>views.py</code></em>
 
 {% from "_form_helpers.html" import render_field %}
-<form action="{{ url_for('email_someone') }}" method="POST">
+<form action="{{ url_for('views.email_someone') }}" method="POST">
     {{ form.hidden_tag() }}
     {{ render_field(form.name, placeholder="Your Name") }}
     {{ render_field(form.email, placeholder="email@your-email.com") }}
